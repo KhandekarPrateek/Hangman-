@@ -1,8 +1,9 @@
 import java.util.Scanner;
 
-public class hangman {
+public class hangman extends data {
 
-    private static String[] words = { "terminator", "banana", "computer", "cow", "rain", "water" };
+    // private static String[] words = { "terminator", "banana", "computer", "cow",
+    // "rain", "water" };
     private static String word = words[(int) (Math.random() * words.length)];
     private static String asterisk = new String(new char[word.length()]).replace("\0", "*");
     private static int count = 0;
