@@ -1,15 +1,43 @@
 import java.util.Scanner;
 
+class player {
+    String name;
+
+    player(String name) {
+        this.name = name;
+    }
+}
+
+class rules {
+    public void rule() {
+        System.out.println(
+                "Guess letters to uncover a secret word. Incorrect guesses result in drawing parts of a hangman."
+                        + " \n " + " Fill in the word before the hangman is complete to win.");
+    }
+}
+
 public class hangman extends data {
 
-    // private static String[] words = { "terminator", "banana", "computer", "cow",
+    // private static String[] words = {"terminator", "banana", "computer", "cow",
     // "rain", "water" };
     private static String word = words[(int) (Math.random() * words.length)];
     private static String asterisk = new String(new char[word.length()]).replace("\0", "*");
     private static int count = 0;
 
     public static void main(String[] args) {
+
         Scanner sc = new Scanner(System.in);
+        System.out.println("would you like to know the rules of the game");
+        String s = sc.next();
+        s.toUpperCase();
+        if (s.equals("yes")) {
+            rules r = new rules();
+            r.rule();
+        }
+
+        System.out.println("enter your name");
+        String name = sc.next();
+        player p1 = new player(name);
 
         while (count < 7 && asterisk.contains("*")) {
             System.out.println("Guess any letter in the word");
@@ -55,74 +83,74 @@ public class hangman extends data {
         }
         if (count == 2) {
             System.out.println("Wrong guess, try again");
-            System.out.println("   |");
-            System.out.println("   |");
-            System.out.println("   |");
-            System.out.println("   |");
-            System.out.println("   |");
-            System.out.println("   |");
-            System.out.println("   |");
+            System.out.println(" |");
+            System.out.println(" |");
+            System.out.println(" |");
+            System.out.println(" |");
+            System.out.println(" |");
+            System.out.println(" |");
+            System.out.println(" |");
             System.out.println("___|___");
         }
         if (count == 3) {
             System.out.println("Wrong guess, try again");
-            System.out.println("   ____________");
-            System.out.println("   |");
-            System.out.println("   |");
-            System.out.println("   |");
-            System.out.println("   |");
-            System.out.println("   |");
-            System.out.println("   |");
-            System.out.println("   | ");
+            System.out.println(" ____________");
+            System.out.println(" |");
+            System.out.println(" |");
+            System.out.println(" |");
+            System.out.println(" |");
+            System.out.println(" |");
+            System.out.println(" |");
+            System.out.println(" | ");
             System.out.println("___|___");
         }
         if (count == 4) {
             System.out.println("Wrong guess, try again");
-            System.out.println("   ____________");
-            System.out.println("   |          _|_");
-            System.out.println("   |         /   \\");
-            System.out.println("   |        |     |");
-            System.out.println("   |         \\_ _/");
-            System.out.println("   |");
-            System.out.println("   |");
-            System.out.println("   |");
+            System.out.println(" ____________");
+            System.out.println(" | _|_");
+            System.out.println(" | / \\");
+            System.out.println(" | | |");
+            System.out.println(" | \\_ _/");
+            System.out.println(" |");
+            System.out.println(" |");
+            System.out.println(" |");
             System.out.println("___|___");
         }
         if (count == 5) {
             System.out.println("Wrong guess, try again");
-            System.out.println("   ____________");
-            System.out.println("   |          _|_");
-            System.out.println("   |         /   \\");
-            System.out.println("   |        |     |");
-            System.out.println("   |         \\_ _/");
-            System.out.println("   |           |");
-            System.out.println("   |           |");
-            System.out.println("   |");
+            System.out.println(" ____________");
+            System.out.println(" | _|_");
+            System.out.println(" | / \\");
+            System.out.println(" | | |");
+            System.out.println(" | \\_ _/");
+            System.out.println(" | |");
+            System.out.println(" | |");
+            System.out.println(" |");
             System.out.println("___|___");
         }
         if (count == 6) {
             System.out.println("Wrong guess, try again");
-            System.out.println("   ____________");
-            System.out.println("   |          _|_");
-            System.out.println("   |         /   \\");
-            System.out.println("   |        |     |");
-            System.out.println("   |         \\_ _/");
-            System.out.println("   |           |");
-            System.out.println("   |           |");
-            System.out.println("   |          / \\ ");
-            System.out.println("___|___      /   \\");
+            System.out.println(" ____________");
+            System.out.println(" | _|_");
+            System.out.println(" | / \\");
+            System.out.println(" | | |");
+            System.out.println(" | \\_ _/");
+            System.out.println(" | |");
+            System.out.println(" | |");
+            System.out.println(" | / \\ ");
+            System.out.println("___|___ / \\");
         }
         if (count == 7) {
             System.out.println("GAME OVER!");
-            System.out.println("   ____________");
-            System.out.println("   |          _|_");
-            System.out.println("   |         /   \\");
-            System.out.println("   |        |     |");
-            System.out.println("   |         \\_ _/");
-            System.out.println("   |          _|_");
-            System.out.println("   |         / | \\");
-            System.out.println("   |          / \\ ");
-            System.out.println("___|___      /   \\");
+            System.out.println(" ____________");
+            System.out.println(" | _|_");
+            System.out.println(" | / \\");
+            System.out.println(" | | |");
+            System.out.println(" | \\_ _/");
+            System.out.println(" | _|_");
+            System.out.println(" | / | \\");
+            System.out.println(" | / \\ ");
+            System.out.println("___|___ / \\");
             System.out.println("GAME OVER! The word was " + word);
         }
     }
